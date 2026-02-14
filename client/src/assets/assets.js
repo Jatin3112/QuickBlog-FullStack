@@ -57,8 +57,8 @@ export const assets = {
   dashboard_icon_3,
   dashboard_icon_4,
 };
-// export const blogCategories = ['All', 'Technology', 'Startup', 'Lifestyle', 'Finance']
-export const blogCategories = ["All"];
+export const blogCategories = ['All', 'Technology', 'Startup', 'Lifestyle', 'Finance']
+// export const blogCategories = ["All"];
 
 export const blog_data = [
   {

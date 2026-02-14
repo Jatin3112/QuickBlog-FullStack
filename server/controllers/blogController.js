@@ -6,8 +6,9 @@ import main from '../configs/gemini.js';
 
 export const addBlog = async (req, res)=>{
     try {
-        const {title, subTitle, description, category, isPublished} = JSON.parse(req.body.blog);
+        const {title, subTitle, description, category, isPublished} = req.body;
         const imageFile = req.file;
+        // console.log(title, description, category)
 
         // Check if all fields are present
         if(!title || !description || !category || !imageFile){
@@ -23,6 +24,7 @@ export const addBlog = async (req, res)=>{
             folder: "/blogs"
         })
 
+        // console.log(response)
         // optimization through imagekit URL transformation
         const optimizedImageUrl = imagekit.url({
             path: response.filePath,
@@ -35,11 +37,12 @@ export const addBlog = async (req, res)=>{
 
         const image = optimizedImageUrl;
 
-        await Blog.create({title, subTitle, description, category, image, isPublished})
+        const test=await Blog.create({title, subTitle, description, category,image, isPublished})
 
         res.json({success: true, message: "Blog added successfully"})
 
     } catch (error) {
+        console.log("Error", error)
         res.json({success: false, message: error.message})
     }
 }
@@ -68,7 +71,9 @@ export const getBlogById = async (req, res) =>{
 
 export const deleteBlogById = async (req, res) =>{
     try {
+        console.log("REQUEST", req.body)
         const { id } = req.body;
+        // console.log("ID",id)
         await Blog.findByIdAndDelete(id);
 
         // Delete all comments associated with the blog

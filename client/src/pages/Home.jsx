@@ -10,7 +10,7 @@ const Home = () => {
     <>
       {/* <Navbar /> */}
       <Header />
-      {/* <BlogList /> */}
+      <BlogList />
       {/* <Newsletter /> */}
       {/* <Footer /> */}
     </>

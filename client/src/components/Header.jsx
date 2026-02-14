@@ -16,7 +16,7 @@ const Header = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen">
+    <div className="flex items-center justify-center p-20">
       <div className="text-center">
         <h1 className="text-3xl sm:text-6xl font-semibold sm:leading-16 text-gray-100 mb-10">
           ~Jay
